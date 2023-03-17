@@ -1,7 +1,7 @@
 <html>
 <body>
-<body style="background-color: pink;">
-<h2>Hello World! Welcome to Jenkins Pipeline...</h2>
-<p>This code is still not Shipped in Production...</p>
+<body style="background-color: red;">
+<h2>Hello all Welcome to Devops Class...</h2>
+<p>Just Rock demo by RRA...</p>
 </body>
 </html>
