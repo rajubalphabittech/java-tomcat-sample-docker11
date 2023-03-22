@@ -17,7 +17,18 @@ pipeline {
             steps {
                 sh "pwd"
                 sh "ls -a"
-                sh "sudo docker build . -t tomcatsamplewebapp:${env.BUILD_ID}"
+                sh "sudo docker rm -f `sudo docker ps -aq`"
+                sh "sudo docker rmi tomcatsamplewebapp"
+                sh "sudo docker images"
+                sh "sudo docker build -t tomcatsamplewebapp ."
+                sh "sudo docker build . -t tomcatsamplewebapp"
+                /*sh "sudo docker build . -t tomcatsamplewebapp:${env.BUILD_ID}"*/
+            }
+        }
+
+        stage('Deployment'){
+            steps {
+                sh "sudo docker run -itd -p 8081:8080 tomcatsamplewebapp"
             }
         }
 
