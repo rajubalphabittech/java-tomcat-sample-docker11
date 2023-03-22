@@ -18,7 +18,8 @@ pipeline {
                 sh "pwd"
                 sh "ls -a"
                 /*sh "sudo docker rm -f `sudo docker ps -aq`"*/
-                sh "sudo docker rm -f '\$(sudo docker ps -aq)'"
+                /*sh "sudo docker rm -f '\$(sudo docker ps -aq)'"*/
+                sh 'docker ps -aq | docker rm -f'
                 sh "sudo docker rmi tomcatsamplewebapp"
                 sh "sudo docker images"
                 sh "sudo docker build -t tomcatsamplewebapp ."
